@@ -1,6 +1,42 @@
 {
   "name": "AWS CDK Project MCP Configuration",
   "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/home/ubuntu"
+      ],
+      "env": {},
+      "disabled": false
+    },
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {},
+      "disabled": false
+    },
+    "mcp-server-git": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-git@latest"
+      ],
+      "env": {},
+      "disabled": false
+    },
+    "serena": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena",
+        "start-mcp-server"
+      ]
+    },
     "awslabs.core-mcp-server": {
       "command": "uvx",
       "args": [
@@ -22,25 +58,6 @@
         "AWS_REGION": "ap-northeast-1",
         "CDK_DEFAULT_REGION": "ap-northeast-1"
       },
-      "disabled": false
-    },
-    "filesystem": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "/home/ubuntu"
-      ],
-      "env": {},
-      "disabled": false
-    },
-    "github": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-github"
-      ],
-      "env": {},
       "disabled": false
     },
     "awslabs.aws-documentation-mcp-server": {
@@ -71,63 +88,6 @@
         "SEARCH_CONTEXT_SIZE": "medium",
         "REASONING_EFFORT": "medium"
       },
-      "disabled": false
-    },
-    "mcp-server-git": {
-      "command": "uvx",
-      "args": [
-        "--directory",
-        "/home/ubuntu/workspace",
-        "mcp-server-git@latest"
-      ],
-      "env": {},
-      "disabled": false
-    },
-    "deep-research": {
-      "command": "uvx",
-      "args": [
-        "mcp-server-deepresearch",
-        "--openai_api_key",
-        "${OPENAI_API_KEY}"
-      ],
-      "env": {},
-      "disabled": false
-    },
-    "knowledge-graph": {
-      "command": "npx",
-      "args": [
-        "mcp-knowledge-graph",
-        "--memory-path",
-        "/home/ubuntu/workspace/cic-proxy/memory.jsonl"
-      ],
-      "env": {},
-      "disabled": false
-    },
-    "pymupdf4llm-mcp": {
-      "command": "uvx",
-      "args": [
-        "pymupdf4llm-mcp@latest",
-        "stdio"
-      ],
-      "env": {},
-      "disabled": false
-    },
-    "pdf-tools": {
-      "command": "uvx",
-      "args": [
-        "--from",
-        "git+https://github.com/hanweg/mcp-pdf-tools.git",
-        "pdf-tools"
-      ],
-      "env": {},
-      "disabled": false
-    },
-    "mcp-ocr": {
-      "command": "uvx",
-      "args": [
-        "mcp-ocr"
-      ],
-      "env": {},
       "disabled": false
     }
   }
