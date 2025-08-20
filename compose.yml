@@ -5,7 +5,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: ${container_name:-$(basename "$(dirname "$(dirname "$PWD")")")}
     volumes:
       - ~/.aws:/home/ubuntu/.aws
       - ~/.gitconfig:/home/ubuntu/.gitconfig
